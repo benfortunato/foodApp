@@ -1,0 +1,177 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root{
+    --red:#d63a25;
+    --white:#fff;
+    --dark:#1e1c2a;
+}
+body{
+    color: var(--dark);
+    background: var(--white);
+}
+.navegation{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  padding: 10px 40px;
+  box-shadow: 0 0.1rem 0.5rem #d63a25;
+  width: 100%;
+  background: var(--dark);
+  transition: all 0.5s;
+  position: fixed;
+}
+/* agora pegamos a logo*/
+.navegation .logo{
+    color: var(--red);
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+.logo span{
+    color: var(--white);
+}
+
+/* estilizacao das uls*/
+.navegation ul{
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+.navegation ul li a{
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+.navegation ul li a:hover{
+    color: var(--red);
+}
+/* estilizando o icon*/
+.navegation i{
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.menu{
+    cursor: pointer;
+    display: none;
+}
+.menu .bar{
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--dark);
+    margin: 5px auto;
+    transition: all 0.3s;
+}
+.menu .bar:nth-child(1),
+.menu .bar:nth-child(3){
+    background: var(--red);
+}
+.home{
+    width: 100%;
+    height: 100vh;
+    display: flex;/*para ficar um do lado do outro*/
+    align-items: center;/*para ficar no meio*/
+    justify-content: space-between; /*para separalos */
+    padding: 0px 10%;/*para nao ficar colado nas margens*/
+}
+.home-text{
+    max-width: 37rem;
+}
+.home-text .text-h4{
+font-size: 1.5rem;
+color: var(--dark);
+margin-bottom: 1rem;/*para dar o afastamento do h1 que esta em baixo*/
+}
+.home-text .text-h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 2.5rem;
+}
+.home-text p{
+    margin-bottom: 2rem;
+}
+
+.home-btn{/*criando um botao */
+padding: 15px 45px;
+background: var(--red);
+color: var(--white);
+border-radius: 10px;
+font-weight: 500;
+transition: all 0.5s;
+}
+
+
+
+.home-btn:hover{
+    background: green;
+}
+.home-img img{
+    width: 100%;
+}
+/* agora vamos tornar a nossa pagina responsiva*/
+@media(max-width:780px){
+    .navegation{
+        padding: 18px 20px;
+    }
+    .menu{ /*chamar o menu para aparecer*/
+ display: block;
+    }
+    .menu.ativo .bar:nth-child(1){ /*estilzazando o ativo do do js*/
+        transform: translateY(8px) rotate(45deg); 
+    }
+    .menu.ativo .bar:nth-child(2){ /*estilzazando o ativo do do js*/
+        opacity: 0; 
+    }
+    .menu.ativo .bar:nth-child(3){ /*estilzazando o ativo do do js*/
+        transform: translateY(-8px) rotate(-45deg); 
+    }
+    
+ .nav-menu{ /*fazendo o menu sumir*/ 
+  position: fixed;
+  right: -100%;
+  top: 70px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background: var(--dark);
+  gap: -10px;
+  transform: all 0.3s;
+    }
+    .nav-menu.ativo{
+        right: 0;
+    }
+
+    .nav-link{
+        margin: 16px 0;
+    }
+    /*main*/
+    .home{
+        padding: 100px 2%;
+        flex-direction: column; /*para ficar um abaixo do outro*/
+        text-align: center;
+        overflow: hidden;/*para ele respeitar o tamanho e nao tirar a bara de rolagem*/
+        gap: 4rem;/*para dar um avastamento entre o botao e a foto*/
+
+    }
+     .home .text-h4{
+         font-size: 15px;
+     }
+     .home .text-h1{
+        font-size: 2.5rem;
+        line-height: 2rem;
+    }
+    .home p{
+        font-size: 15px;
+        
+    }
+    .home-img{
+        width: 100%;
+    }
+}
